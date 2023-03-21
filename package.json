@@ -1,0 +1,18 @@
+{
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2"
+  },
+  "name": "301d97-first-server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DocHolliday13x/city-explorer-api"
+  },
+  "homepage": "https://github.com/DocHolliday13x/city-explorer-api/blob/main/README.md"
+}
