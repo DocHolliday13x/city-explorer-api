@@ -6,7 +6,7 @@
 
 ## Project Overview
 
-* *Description*: City Explorer is a Code Fellows 301 Lab exercise in which we will create our first true Full-Stack application. city-explorer is the front-end application, and city-explorer-api will be our backend application that will be our server for our application.
+* *Description*: City Explorer is a Code Fellows 301 Lab exercise in which we will create our first true Full-Stack application. city-explorer is the front-end application, and city-explorer-api will be our backend application that will be our server for our application. To build our API, we will utilize a library called Express.js as well as Node.js. We will be using classes to simplify bulky data. After we have built our server, we will deploy it to Render and connect our React App on Netlify to the back-end at Render.
 
 * *Current State of Development*: Initial Setup
 
