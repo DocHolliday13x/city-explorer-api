@@ -10,7 +10,7 @@ require('dotenv').config();
 
 const cors = require('cors');
 
-let data = require('./data/data.json');
+let data = require('./data/weather.json');
 
 // ***** ONCE WE BRING IN EXPRESS WE CALL IT TO CREATE THE SERVER *****
 // ***** app === server *****
@@ -38,7 +38,6 @@ app.get('/hello', (request, response) => {
   console.log(request.query);
   let userFirstName = request.query.firstName;
   let userLastName = request.query.lastName;
-
   // let key = request.query.key;
   // let searchInfo = request.query.q;
 
