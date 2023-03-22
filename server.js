@@ -47,13 +47,15 @@ app.get('/hello', (request, response) => {
 app.get('/weather', (request, response, next) => {
   try {
     let queriedLocation = request.query.city_name;
-    // let foundLocation = data.find(city.city_name === queriedLocation);
 
-    let dataToGroom = data.find(city => city.city_name === queriedLocation); // I need the description and the date of the weather object
-    let dataToSend = new City(dataToGroom);
+    let dataToGroom = weatherData.find(e => e.city_name === queriedLocation); // I need the description and the date of the weather object
 
+    // let dataToSend = new Forecast(dataToGroom);
+    // console.log(dataToSend);
 
-    response.status(200).send(dataToSend);
+    let mappedData = dataToGroom.data.map(dailyForcast => new Forecast(dailyForcast));
+
+    response.status(200).send(mappedData);
   } catch (error) {
     next(error);
   }
@@ -62,7 +64,11 @@ app.get('/weather', (request, response, next) => {
 // ***** CLASS TO GROOM BULKY DATA *****
 class Forecast {
   constructor(weatherObj){
-
+    // this.city = weatherObj.city_name;
+    // this.lat = weatherObj.lat;
+    // this.lon = weatherObj.lon;
+    this.date = weatherObj.valid_date;
+    this.description = weatherObj.weather.description;
   }
 }
 
