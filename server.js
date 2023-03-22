@@ -5,12 +5,10 @@ console.log('yassss our first sever!');
 const {response} = require('express');
 // ***** REQUIRES ***** similar to imports for frontend
 const express = require('express');
-
 require('dotenv').config();
-
 const cors = require('cors');
-
-let data = require('./data/weather.json');
+let weatherData = require('./data/weather.json');
+// const moviesData = require('./data/movies.js');
 
 // ***** ONCE WE BRING IN EXPRESS WE CALL IT TO CREATE THE SERVER *****
 // ***** app === server *****
@@ -22,7 +20,9 @@ app.use(cors());
 // ***** PORT THE SERVER WILL RUN ON *****
 const PORT = process.env.PORT || 3002; // Designates the port
 
-app.listen(PORT, () => console.log(`We are running on port ${PORT}!`));
+
+// ***** SERVER START *****
+app.listen(PORT, () => console.log(`We are running on port: ${PORT}.`));
 
 // ***** ENDPOINTS *****
 
@@ -44,21 +44,33 @@ app.get('/hello', (request, response) => {
   response.status(200).send(`Hello, ${userFirstName} ${userLastName}! Welcome to my server!`);
 });
 
-app.get('/city', (request, response, next) => {
+app.get('/weather', (request, response, next) => {
   try {
     let queriedLocation = request.query.city_name;
+    // let foundLocation = data.find(city.city_name === queriedLocation);
 
-    response.status(200).send(`You are looking for ${queriedLocation}.`);
+    let dataToGroom = data.find(city => city.city_name === queriedLocation); // I need the description and the date of the weather object
+    let dataToSend = new City(dataToGroom);
+
+
+    response.status(200).send(dataToSend);
   } catch (error) {
     next(error);
   }
 });
 
+// ***** CLASS TO GROOM BULKY DATA *****
+class Forecast {
+  constructor(weatherObj){
+
+  }
+}
+
 
 // ***** CATCH ALL - BE AT THE BOTTOM AND SERVE AS A 404 ERROR MESSAGE *****
 
 app.get('*', (request, response) => {
-  response.status(404).send('This route is not available.');
+  response.status(404).send('This page exists only in the ether. Please try another search.');
 });
 
 // ***** ERROR HANDLING - PLUG AND PLAY CODE FROM EXPRESS DOCS *****
