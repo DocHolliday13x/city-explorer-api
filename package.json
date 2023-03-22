@@ -1,9 +1,10 @@
 {
   "dependencies": {
+    "cors": "^2.8.5",
     "dotenv": "^16.0.3",
     "express": "^4.18.2"
   },
-  "name": "301d97-first-server",
+  "name": "city-explorer-api",
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
@@ -14,5 +15,7 @@
     "type": "git",
     "url": "git+https://github.com/DocHolliday13x/city-explorer-api"
   },
+  "author": "Ryan Eastman",
+  "license": "MIT",
   "homepage": "https://github.com/DocHolliday13x/city-explorer-api/blob/main/README.md"
 }
