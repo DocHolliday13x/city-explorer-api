@@ -50,9 +50,6 @@ app.get('/weather', (request, response, next) => {
 
     let dataToGroom = weatherData.find(e => e.city_name === queriedLocation); // I need the description and the date of the weather object
 
-    // let dataToSend = new Forecast(dataToGroom);
-    // console.log(dataToSend);
-
     let mappedData = dataToGroom.data.map(dailyForcast => new Forecast(dailyForcast));
 
     response.status(200).send(mappedData);
