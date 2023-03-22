@@ -19,7 +19,7 @@ Today I will be creating a back-end server for our City Explorer project. Today'
 * Estimate of Time Needed to Complete: Probably 6 hours
 * Start Time: 1400
 * Finish Time: 0000 
-* Actual Time to Completion: 
+* Actual Time to Completion: 10 hours
 
 ## Getting Started
 
