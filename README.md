@@ -17,9 +17,20 @@ Today I will be creating a back-end server for our City Explorer project. Today'
 * Link to Trello Board: https://trello.com/b/YJhepSUm/city-explorer
 * Name of Feature: Back-End Server
 * Estimate of Time Needed to Complete: Probably 6 hours
-* Start Time: 1400
-* Finish Time: 0000 
-* Actual Time to Completion: 10 hours
+* Start Time: 1400 21 MAR 2023
+* Finish Time: 1630 22 MAR 2023
+* Actual Time to Completion: 14 hours
+
+## Lab 08
+
+For today's assignment, I have to use two additional APIs to display current weather data by date, as well as list current movies playing in the city that is searched by the user.
+
+* Link to Trello Board: https://trello.com/b/YJhepSUm/city-explorer
+* Name of Feature: Using weather API to display accurate/dynamic weather data, using movie database api to display list of available movies by city location
+* Estimate of Time Needed to Complete: 15 hours
+* Start Time: 1630
+* Finish Time: 0000
+* Actual Time to Completion:
 
 ## Getting Started
 
@@ -27,8 +38,10 @@ Today I will be creating a back-end server for our City Explorer project. Today'
 
 ## Change Log
 
-21 March 2023 1400 - Initial Setup Commenced.
-21 March 2023 0000 - Lab 07 Completed
+21 March 2023 1400 - Initial Setup Commenced
+22 March 2023 1630 - Lab 07 Completed
+22 March 2023 1630 - Lab 08 Commenced
+22 March 2023 0000 - Lab 08 Completed
 
 ## Credit and Collaborations
 
