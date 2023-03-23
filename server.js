@@ -8,6 +8,7 @@ const express = require('express');
 require('dotenv').config();
 const cors = require('cors');
 let weatherData = require('./data/weather.json');
+const axios = require('axios');
 // const moviesData = require('./data/movies.js');
 
 // ***** ONCE WE BRING IN EXPRESS WE CALL IT TO CREATE THE SERVER *****
@@ -46,6 +47,8 @@ app.get('/hello', (request, response) => {
 
 app.get('/weather', (request, response, next) => {
   try {
+    let url = `http://api.weatherbit.io/v2.0/forecast/daily?key=<my api key>&lat=<lat from frontend>&lon=<lon from frontend>&days=10&units=I`;
+
     let queriedLocation = request.query.city_name;
 
     let dataToGroom = weatherData.find(e => e.city_name === queriedLocation); // I need the description and the date of the weather object
@@ -53,6 +56,20 @@ app.get('/weather', (request, response, next) => {
     let mappedData = dataToGroom.data.map(dailyForcast => new Forecast(dailyForcast));
 
     response.status(200).send(mappedData);
+  } catch (error) {
+    next(error);
+  }
+});
+
+app.get('/movies', async (request, response, next) => {
+  try {
+    // TODO: accept queries
+    let queriedMovies = request.query.searchQuery;
+    // TODO: build url for axios
+    let url = `https://api.themoviedb.org/3/search/movie?api_key=${process.env.REACT_APP_MOVIEDB_API_KEY}&language=en-US&page=1&include_adult=false`;
+    // TODO: groom that data and send it to the frontend
+
+    response.status(200).send('test');
   } catch (error) {
     next(error);
   }
@@ -66,6 +83,13 @@ class Forecast {
     // this.lon = weatherObj.lon;
     this.date = weatherObj.valid_date;
     this.description = weatherObj.weather.description;
+  }
+}
+
+class Movies {
+  constructor(moviesObj){
+    this.title= '';
+    this.overview = '';
   }
 }
 
