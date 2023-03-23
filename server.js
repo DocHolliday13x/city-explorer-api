@@ -2,8 +2,8 @@
 
 console.log('yassss our first sever!');
 
-const {response} = require('express');
 // ***** REQUIRES ***** similar to imports for frontend
+
 const express = require('express');
 require('dotenv').config();
 const cors = require('cors');
@@ -46,14 +46,17 @@ app.get('/hello', (request, response) => {
 
 app.get('/weather', async (request, response, next) => {
   try {
-    let queriedLat = request.query.lat;
-    let queriedLong = request.query.lon;
+    let lat = request.query.lat;
+    let lon = request.query.lon;
 
-    let url = `http://api.weatherbit.io/v2.0/forecast/daily?key=${REACT_APP_WEATHERBIT_API_KEY}&lat=${queriedLat}>&lon=${queriedLong}&days=10&units=I`;
+    let url = `http://api.weatherbit.io/v2.0/forecast/daily?key=${process.env.REACT_APP_WEATHERBIT_API_KEY}&lat=${lat}&lon=${lon}&days=10&units=I`;
+    console.log(url);
 
     let dataToGroom = await axios.get(url);
+    console.log(dataToGroom);
 
     let mappedData = dataToGroom.data.data.map(dailyForcast => new Forecast(dailyForcast));
+    console.log(mappedData);
 
     response.status(200).send(mappedData);
   } catch (error) {
