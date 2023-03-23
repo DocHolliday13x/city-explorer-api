@@ -30,14 +30,14 @@ app.listen(PORT, () => console.log(`We are running on port: ${PORT}.`));
 // ***** 1st Argument: string url in quotes ***** request
 // ***** 2nd Argument: callback that will execute when that endpoint is reached ***** request
 
-app.get('/', (request, response) => {
-  response.status(200).send('Welcome to my server!');
-});
+// app.get('/', (request, response) => {
+  // response.status(200).send('Welcome to my server!');
+// });
 
-app.get('/hello', (request, response) => {
-  console.log(request.query);
-  let userFirstName = request.query.firstName;
-  let userLastName = request.query.lastName;
+// app.get('/hello', (request, response) => {
+  // console.log(request.query);
+  // let userFirstName = request.query.firstName;
+  // let userLastName = request.query.lastName;
   // let key = request.query.key;
   // let searchInfo = request.query.q;
 
@@ -50,13 +50,13 @@ app.get('/weather', async (request, response, next) => {
     let lon = request.query.lon;
 
     let url = `http://api.weatherbit.io/v2.0/forecast/daily?key=${process.env.REACT_APP_WEATHERBIT_API_KEY}&lat=${lat}&lon=${lon}&days=10&units=I`;
-    console.log(url);
+    // console.log(url);
 
     let dataToGroom = await axios.get(url);
-    console.log(dataToGroom);
+    // console.log(dataToGroom);
 
     let mappedData = dataToGroom.data.data.map(dailyForcast => new Forecast(dailyForcast));
-    console.log(mappedData);
+    // console.log(mappedData);
 
     response.status(200).send(mappedData);
   } catch (error) {
@@ -70,6 +70,7 @@ app.get('/movies', async (request, response, next) => {
     let keywordFromFrontend = request.query.searchQuery;
     // TODO: build url for axios
     let url = `https://api.themoviedb.org/3/search/movie?api_key=${process.env.REACT_APP_MOVIEDB_API_KEY}&language=en-US&page=1&include_adult=false`;
+    console.log(url);
 
     let moviesToGroom = await axios.get(url);
     console.log(moviesToGroom);
@@ -78,6 +79,7 @@ app.get('/movies', async (request, response, next) => {
     let mappedMovieData = moviesToGroom.data.results.map(localMovies => {
       return new Movies(localMovies);
     });
+    console.log(mappedMovieData);
 
     response.status(200).send(mappedMovieData);
   } catch (error) {
