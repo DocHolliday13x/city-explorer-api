@@ -67,14 +67,17 @@ app.get('/weather', async (request, response, next) => {
 app.get('/movies', async (request, response, next) => {
   try {
     // TODO: accept queries
-    let queriedMovies = request.query.searchQuery;
+    let keywordFromFrontend = request.query.searchQuery;
     // TODO: build url for axios
     let url = `https://api.themoviedb.org/3/search/movie?api_key=${process.env.REACT_APP_MOVIEDB_API_KEY}&language=en-US&page=1&include_adult=false`;
-    // TODO: groom that data and send it to the frontend
+
     let moviesToGroom = await axios.get(url);
     console.log(moviesToGroom);
 
-    let mappedMovieData = moviesToGroom.data.map(localMovies => new Movies(localMovies));
+    // TODO: groom that data and send it to the frontend
+    let mappedMovieData = moviesToGroom.data.results.map(localMovies => {
+      return new Movies(localMovies);
+    });
 
     response.status(200).send(mappedMovieData);
   } catch (error) {
@@ -97,7 +100,7 @@ class Movies {
   constructor(moviesObj){
     this.title= moviesObj.original_title;
     this.overview = moviesObj.overview;
-    // this.image = `https://image.tmbd.org/t/p/w300${moviesObj.poster_path}`;
+    this.image = `https://image.tmbd.org/t/p/w300${moviesObj.poster_path}`;
   }
 }
 
