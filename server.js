@@ -71,8 +71,12 @@ app.get('/movies', async (request, response, next) => {
     // TODO: build url for axios
     let url = `https://api.themoviedb.org/3/search/movie?api_key=${process.env.REACT_APP_MOVIEDB_API_KEY}&language=en-US&page=1&include_adult=false`;
     // TODO: groom that data and send it to the frontend
+    let moviesToGroom = await axios.get(url);
+    console.log(moviesToGroom);
 
-    response.status(200).send('test');
+    let mappedMovieData = moviesToGroom.data.map(localMovies => new Movies(localMovies));
+
+    response.status(200).send(mappedMovieData);
   } catch (error) {
     next(error);
   }
@@ -91,9 +95,9 @@ class Forecast {
 
 class Movies {
   constructor(moviesObj){
-    this.title= '';
-    this.overview = '';
-    this.image = `https://image.tmbd.org/t/p/w300${moviesObj.poster_path}`;
+    this.title= moviesObj.original_title;
+    this.overview = moviesObj.overview;
+    // this.image = `https://image.tmbd.org/t/p/w300${moviesObj.poster_path}`;
   }
 }
 
