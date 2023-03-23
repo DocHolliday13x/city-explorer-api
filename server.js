@@ -27,9 +27,9 @@ app.listen(PORT, () => console.log(`We are running on port: ${PORT}.`));
 
 
 // *** LAB 09 BELOW ***
-app.get('/weather', getWeather); // calls my weather function
+app.get('/weather', getWeatherData); // calls my weather function
 
-app.get('/movies', getMovies); // calls my movies function
+app.get('/movies', getMoviesData); // calls my movies function
 
 
 // ***** CATCH ALL - BE AT THE BOTTOM AND SERVE AS A 404 ERROR MESSAGE *****
@@ -117,20 +117,20 @@ app.use((error, request, response, next) => {
 
 
 // *** LAB 07/08 BELOW ***
-// ***** CLASS TO GROOM BULKY DATA *****
-class Forecast {
-  constructor(weatherObj) {
-    this.date = weatherObj.valid_date;
-    this.description = weatherObj.weather.description;
-  }
-}
+// ***** CLASSES TO GROOM BULKY DATA *****
+// class Forecast {
+//   constructor(weatherObj) {
+//     this.date = weatherObj.valid_date;
+//     this.description = weatherObj.weather.description;
+//   }
+// }
 
-class Movies {
-  constructor(moviesObj) {
-    this.title = moviesObj.original_title;
-    this.overview = moviesObj.overview;
-    this.image = `https://image.tmbd.org/t/p/w300${moviesObj.poster_path}`;
-  }
-}
+// class Movies {
+//   constructor(moviesObj) {
+//     this.title = moviesObj.original_title;
+//     this.overview = moviesObj.overview;
+//     this.image = `https://image.tmbd.org/t/p/w300${moviesObj.poster_path}`;
+//   }
+// }
 
 
