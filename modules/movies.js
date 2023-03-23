@@ -16,7 +16,7 @@ async function getMoviesData(request, response, next) {
     let mappedMoviesDataToSend = movieResults.data.results.map(movie => {
       return new Movies(movie);
     });
-
+    console.log(mappedMoviesDataToSend);
     response.status(200).send(mappedMoviesDataToSend);
   } catch (error) {
     next(error);
