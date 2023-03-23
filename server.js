@@ -7,7 +7,6 @@ const {response} = require('express');
 const express = require('express');
 require('dotenv').config();
 const cors = require('cors');
-let weatherData = require('./data/weather.json');
 const axios = require('axios');
 // const moviesData = require('./data/movies.js');
 
@@ -45,15 +44,16 @@ app.get('/hello', (request, response) => {
   response.status(200).send(`Hello, ${userFirstName} ${userLastName}! Welcome to my server!`);
 });
 
-app.get('/weather', (request, response, next) => {
+app.get('/weather', async (request, response, next) => {
   try {
-    let url = `http://api.weatherbit.io/v2.0/forecast/daily?key=<my api key>&lat=<lat from frontend>&lon=<lon from frontend>&days=10&units=I`;
+    let queriedLat = request.query.lat;
+    let queriedLong = request.query.lon;
 
-    let queriedLocation = request.query.city_name;
+    let url = `http://api.weatherbit.io/v2.0/forecast/daily?key=${REACT_APP_WEATHERBIT_API_KEY}&lat=${queriedLat}>&lon=${queriedLong}&days=10&units=I`;
 
-    let dataToGroom = weatherData.find(e => e.city_name === queriedLocation); // I need the description and the date of the weather object
+    let dataToGroom = await axios.get(url);
 
-    let mappedData = dataToGroom.data.map(dailyForcast => new Forecast(dailyForcast));
+    let mappedData = dataToGroom.data.data.map(dailyForcast => new Forecast(dailyForcast));
 
     response.status(200).send(mappedData);
   } catch (error) {
@@ -90,6 +90,7 @@ class Movies {
   constructor(moviesObj){
     this.title= '';
     this.overview = '';
+    this.image = `https://image.tmbd.org/t/p/w300${moviesObj.poster_path}`;
   }
 }
 
