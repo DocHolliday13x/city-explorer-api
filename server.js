@@ -7,7 +7,8 @@ console.log('yassss our first sever!');
 const express = require('express');
 require('dotenv').config();
 const cors = require('cors');
-const axios = require('axios');
+const getWeatherData = require('./modules/weather.js');
+const getMoviesData = require('./modules/movies.js');
 // const moviesData = require('./data/movies.js');
 
 // ***** ONCE WE BRING IN EXPRESS WE CALL IT TO CREATE THE SERVER *****

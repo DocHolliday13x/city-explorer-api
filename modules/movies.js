@@ -8,11 +8,11 @@ async function getMoviesData(request, response, next) {
 
     let keywordFromFrontEnd = request.query.searchQuery;
 
-    let url = `https://api.themoviedb.org/3/search/movie?api_key=${process.env.MOVIES_API_KEY}&language=en-US&page=1&include_adult=false&query=${keywordFromFrontEnd}`;
+    let url = `https://api.themoviedb.org/3/search/movie?api_key=${process.env.REACT_APP_MOVIEDB_API_KEY}&language=en-US&page=1&include_adult=false&query=${keywordFromFrontEnd}`;
 
     let movieResults = await axios.get(url);
 
-    // *** GROOM DATA TO SEND TO FRONT-END ***
+    // *** GROOMED DATA TO SEND TO FRONT-END ***
     let mappedMoviesDataToSend = movieResults.data.results.map(movie => {
       return new Movies(movie);
     });
