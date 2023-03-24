@@ -43,11 +43,26 @@ Today's goal is to refactor the front and back end of my application. I don't kn
 * Finish Time: 23 MAR 2023 1700
 * Actual Time to Completion: < 6 hrs
 
+## Lab 10
+
+Today's goal is to utilize cache to maximize API accessibility. In order to achieve this, I will create an object in my server code to hold the API response data for any proxied queries. That way my back end can first check to see if there is already information about a given city and, if there is, send the data directly from the storage object, without concerns of being rate-limited by the API providers.
+
+* Link to Trello Board: https://trello.com/b/YJhepSUm/city-explorer
+* Name of Feature: Cache
+* Estimate of Time Needed to Complete: 6 hours
+* Start Time: 24 MAR 2023 1130
+* Finish Time: 24 MAR 2023 1500
+* Actual Time to Completion: 3.5 hours
+
 ## Getting Started
 
 ## Architecture
 
-![WRCC1](./assets/WRCC1.png)
+* Labs 06 - 09
+  * ![WRCC1](./assets/WRCC1.png)
+
+* Lab 10
+  * ![WRRC2](./assets/WRRC2.png)
 
 ## Change Log
 
@@ -57,6 +72,7 @@ Today's goal is to refactor the front and back end of my application. I don't kn
 22 March 2023 0000 - Lab 08 Submitted (incomplete)
 23 March 2023 1130 - Lab 09 Commenced
 23 March 2023 1700 - Lab 09 Completed
+24 March 2023
 
 ## Credit and Collaborations
 
