@@ -28,20 +28,35 @@ For today's assignment, I have to use two additional APIs to display current wea
 * Link to Trello Board: https://trello.com/b/YJhepSUm/city-explorer
 * Name of Feature: Using weather API to display accurate/dynamic weather data, using movie database api to display list of available movies by city location
 * Estimate of Time Needed to Complete: 15 hours
-* Start Time: 1630
-* Finish Time: 0000
+* Start Time: 22 MAR 2023 1630
+* Finish Time: 23 MAR 2023 1700
 * Actual Time to Completion:
+
+## Lab 09
+
+Today's goal is to refactor the front and back end of my application. I don't know if refactoring will make it run smoother, but it sure cleaned up my code nicely. Everything is more readable.
+
+* Link to Trello Board: https://trello.com/b/YJhepSUm/city-explorer
+* Name of Feature: Refactor - Modularize the back-end codebase.
+* Estimate of Time Needed to Complete: 15 hours
+* Start Time: 23 MAR 2023 1130
+* Finish Time: 23 MAR 2023 1700
+* Actual Time to Completion: < 6 hrs
 
 ## Getting Started
 
 ## Architecture
 
+![WRCC1](./assets/WRCC1.png)
+
 ## Change Log
 
 21 March 2023 1400 - Initial Setup Commenced
-22 March 2023 1630 - Lab 07 Completed
+22 March 2023 1630 - Lab 07 Submitted (incomplete)
 22 March 2023 1630 - Lab 08 Commenced
-22 March 2023 0000 - Lab 08 Completed
+22 March 2023 0000 - Lab 08 Submitted (incomplete)
+23 March 2023 1130 - Lab 09 Commenced
+23 March 2023 1700 - Lab 09 Completed
 
 ## Credit and Collaborations
 
